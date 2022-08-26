@@ -10,14 +10,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.servicetipcalculator2.CountryController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ListView fx:id="lsv_Countries" layoutY="41.0" prefHeight="358.0" prefWidth="175.0" />
+                  <ListView fx:id="lsv_Countries" layoutY="41.0" prefHeight="262.0" prefWidth="175.0" />
                   <Label alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="175.0" text="Countries" />
                </children>
             </AnchorPane>
@@ -36,7 +35,7 @@
                     </rowConstraints>
                      <children>
                         <Label text="Name" />
-                        <Label text="Minimun Service %" GridPane.rowIndex="1" />
+                        <Label text="Minimum Service %" GridPane.rowIndex="1" />
                         <Label text="Maximum Service %" GridPane.rowIndex="2" />
                         <Label text="Currency" GridPane.rowIndex="3" />
                         <TextField fx:id="txt_MinServicePercentage" GridPane.columnIndex="1" GridPane.rowIndex="1" />

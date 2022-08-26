@@ -26,10 +26,24 @@ public class CountryController implements Initializable {
     @FXML
     private TextField txt_Currency;
 
+    private ObservableList<CountryModel> _countries = FXCollections.observableArrayList();
+
+    public void SetCountries(ObservableList<CountryModel> _landlist){
+        this._countries = _landlist;
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // private ObservableList<CountryModel> _countries = FXCollections.observableArrayList();
+        FillCountryList();
+
     }
+
+    private void FillCountryList(){
+        for (CountryModel country: _countries)
+            {
+            lsv_Countries.getItems().add(country.GetCountryName());
+        }
+
+    };
 }

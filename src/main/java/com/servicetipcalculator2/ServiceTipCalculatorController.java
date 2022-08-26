@@ -8,12 +8,18 @@ import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.Callable;
@@ -75,6 +81,7 @@ public class ServiceTipCalculatorController implements Initializable {
         for (CountryModel country : _countries) {
             cmb_Countries.getItems().add(country.GetCountryName());
         }
+
     }
     //
     public void cmb_Country_Changed(ActionEvent event){
@@ -108,9 +115,25 @@ public class ServiceTipCalculatorController implements Initializable {
         _countries.add(1, new CountryModel("Belgium", 0, 15, "EUR"));
         _countries.add(2, new CountryModel("Sweden", 10, 30, "SKR"));
         _countries.add(3, new CountryModel("Sri Lanka", 10, 20, "LKR"));
-    }
+    };
 
-    ;
+    private Parent root;
+    public void EditCountries(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CountryView.fxml"));
+        root = loader.load();
+
+        CountryController controller = loader.getController();
+        controller.SetCountries(_countries);
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        Scene scene = new Scene(root);
+        stage.setTitle("Edit Countries");
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
 
     //endregion
