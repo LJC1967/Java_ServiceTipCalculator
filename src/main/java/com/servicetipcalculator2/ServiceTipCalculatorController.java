@@ -124,7 +124,8 @@ public class ServiceTipCalculatorController implements Initializable {
         root = loader.load();
 
         CountryController controller = loader.getController();
-        controller.SetCountries(_countries);
+        //controller.SetCountries(_countries);
+        controller.SetName("Griekenland"); // dit werkt
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 

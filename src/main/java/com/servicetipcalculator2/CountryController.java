@@ -31,6 +31,9 @@ public class CountryController implements Initializable {
     public void SetCountries(ObservableList<CountryModel> _landlist){
         this._countries = _landlist;
     }
+    public void SetName(String naam){
+        txt_Name.setText(naam);
+    }
 
 
     @Override
